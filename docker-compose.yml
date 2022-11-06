@@ -24,7 +24,6 @@ services:
     restart: always
     volumes:
       - ./wordpress:/var/www/html
-      # - ./.htaccess:/var/www/html/.htaccess
     environment:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: wordpress

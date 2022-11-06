@@ -1,4 +1,4 @@
-FROM wordpress:latest
+FROM wordpress:6.1
 # wp-cliをインストール
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 # 実行権限を付与
@@ -8,4 +8,4 @@ RUN mv wp-cli.phar /usr/local/bin/wp
 # セットアップ
 COPY wp-setup.sh /wp-setup.sh
 RUN chmod +x /wp-setup.sh
-# CMD ["/wp-setup.sh"]
+CMD ["/wp-setup.sh"]
