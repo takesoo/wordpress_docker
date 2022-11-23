@@ -9,26 +9,34 @@ services:
     ports:
       - 3306:3306
     environment:
-      MYSQL_ROOT_PASSWORD: somewordpress
+      MYSQL_ROOT_PASSWORD: wordpress
       MYSQL_DATABASE: wordpress
       MYSQL_USER: wordpress
       MYSQL_PASSWORD: wordpress
 
   wordpress:
-    build: .
+    image: bitnami/wordpress:6.1.1
     depends_on:
       - db
-    image: wordpress-multisite
     ports:
-      - "8000:80"
+      - "8080:8080"
     restart: always
     volumes:
-      - ./wordpress:/var/www/html
+      - wordpress_data:/bitnami/wordpress
     environment:
-      WORDPRESS_DB_HOST: db:3306
-      WORDPRESS_DB_USER: wordpress
-      WORDPRESS_DB_PASSWORD: wordpress
+      ALLOW_EMPTY_PASSWORD: 'yes'
+      WORDPRESS_DATABASE_HOST: db
+      WORDPRESS_DATABASE_PORT_NUMBER: 3306
+      WORDPRESS_DATABASE_NAME: wordpress
+      WORDPRESS_DATABASE_USER: wordpress
+      WORDPRESS_DATABASE_PASSWORD: wordpress
+      PHP_MEMORY_LIMIT: 512M
+      PHP_POST_MAX_SIZE: 512M
+      PHP_UPLOAD_MAX_FILESIZE: 512M
+      WORDPRESS_EXTRA_WP_CONFIG_CONTENT: |
+        /* wp-config.phpに設定を追記するときはここに追加してください */
+        define('WP_AUTO_UPDATE_CORE', true);
 
 volumes:
-  wordpress:
+  wordpress_data:
   db_data:
