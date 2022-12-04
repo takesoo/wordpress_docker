@@ -24,7 +24,6 @@ services:
     volumes:
       - wordpress_data:/bitnami/wordpress
     environment:
-      ALLOW_EMPTY_PASSWORD: 'yes'
       WORDPRESS_DATABASE_HOST: db
       WORDPRESS_DATABASE_PORT_NUMBER: 3306
       WORDPRESS_DATABASE_NAME: wordpress
