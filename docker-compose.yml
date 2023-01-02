@@ -32,6 +32,7 @@ services:
       PHP_MEMORY_LIMIT: 512M
       PHP_POST_MAX_SIZE: 512M
       PHP_UPLOAD_MAX_FILESIZE: 512M
+      WORDPRESS_HTACCESS_OVERRIDE_NONE: no # .htaccessのAllowOverrideをAllにする
       WORDPRESS_EXTRA_WP_CONFIG_CONTENT: |
         /* wp-config.phpに設定を追記するときはここに追加してください */
         define('WP_AUTO_UPDATE_CORE', true);

@@ -39,12 +39,12 @@
                     "value": "512M"
                 },
                 {   
-                    "name": "enabled",
-                    "value": "false"
+                    "name": "PHP_POST_MAX_SIZE",
+                    "value": "512M"
                 },
                 {   
-                    "name": "ALLOW_EMPTY_PASSWORD",
-                    "value": "yes"
+                    "name": "PHP_UPLOAD_MAX_FILESIZE",
+                    "value": "512M"
                 }
             ]
         }
@@ -58,14 +58,14 @@
         {
             "name": "wordpress",
             "efsVolumeConfiguration": {
-                "fileSystemId": "fs-0af6e8c18013c3d0d",
+                "fileSystemId": "fs-05c79871c9939eb7c",
                 "transitEncryption": "ENABLED",
                 "authorizationConfig": {
-                    "accessPointId": "fsap-09156402d194fd55f",
+                    "accessPointId": "fsap-06b4f0e8dbe21559a",
                     "iam": "DISABLED"
                 }
             }
         }
     ],
-    "family": "wof-tutorial"
+    "family": "fujirockwiki"
 }
